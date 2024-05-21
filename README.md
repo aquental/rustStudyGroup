@@ -1,2 +1,2 @@
-# rustStudyGroup
-A rusty study group
+# Rust Study Group
+A rusty study group.
