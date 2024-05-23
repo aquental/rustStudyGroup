@@ -11,3 +11,5 @@ A rusty study group.
 ## Roadmaps
 
 > [List of Resources to learn Rust - Roadmap From Beginner to Advanced Level](https://github.com/ImplFerris/LearnRust)
+>
+> [RUST Programming Full Course 2024](https://dev.to/bekbrace/rust-programming-full-course-2024-2jen)
