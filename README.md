@@ -23,3 +23,5 @@ A rusty study group.
 > [Let's code a trading bot for Solana!](https://www.youtube.com/live/9vG59d2HBMM)
 >
 > [How to Send a Successful Transaction on Solana with Priority Fees](https://www.youtube.com/live/2p1Icrm2lFI)
+>
+> [QuickNode Solana track](https://www.youtube.com/watch?v=bg3XWrIpVnk&list=PLT2H_0otcvBRk10JH5_-5GViAMaQLtIol)
