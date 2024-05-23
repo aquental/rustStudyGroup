@@ -21,3 +21,5 @@ A rusty study group.
 > [How to Create a Solana Trading Bot - QuickNode](https://www.youtube.com/live/u8Qr1JI3pUM)
 >
 > [Let's code a trading bot for Solana!](https://www.youtube.com/live/9vG59d2HBMM)
+>
+> [How to Send a Successful Transaction on Solana with Priority Fees](https://www.youtube.com/live/2p1Icrm2lFI)
