@@ -258,3 +258,8 @@ total 48
 -rw-r--r--@ 1 aquental  staff    934  1 Nov 08:22 README.md
 drwxr-xr-x@ 7 aquental  staff    224  1 Nov 08:22 exercism
 -rw-r--r--@ 1 aquental  staff  12327  1 Nov 09:40 list.txt
+total 48
+-rw-r--r--@ 1 aquental  staff   1072  1 Nov 08:22 LICENSE
+-rw-r--r--@ 1 aquental  staff    934  1 Nov 08:22 README.md
+drwxr-xr-x@ 7 aquental  staff    224  1 Nov 08:22 exercism
+-rw-r--r--@ 1 aquental  staff  12572  1 Nov 09:40 list.txt
