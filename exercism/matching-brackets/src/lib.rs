@@ -3,5 +3,5 @@ pub fn brackets_are_balanced(string: &str) -> bool {
     while copy.contains("{}") || copy.contains("[]") || copy.contains("()") {
         copy = copy.replace("{}", "").replace("[]", "").replace("()", "");
     }
-    copy.len() == 0
+    copy.is_empty()
 }
