@@ -1,3 +1,7 @@
 pub fn brackets_are_balanced(string: &str) -> bool {
-    todo!("Check if the string \"{string}\" contains balanced brackets");
+    let mut copy: String = string.chars().filter(|&c| "{[()]}".contains(c)).collect();
+    while copy.contains("{}") || copy.contains("[]") || copy.contains("()") {
+        copy = copy.replace("{}", "").replace("[]", "").replace("()", "");
+    }
+    copy.len() == 0
 }
