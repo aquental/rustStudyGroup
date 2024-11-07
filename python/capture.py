@@ -47,6 +47,10 @@ def main():
     print(max_captures(5, (2, 2), [], 3))  # 0
     print(max_captures(5, (2, 2), [(3, 3)], 2))  # 1
     print(max_captures(5, (2, 2), [(3, 3), (1, 1), (4, 4)], 3))  # 3
+    print(max_captures(5, (2, 2), [(0, 0), (4, 4)], 1))  # 0
+    print(max_captures(5, (2, 2), [(2, 2)], 1))  # 1
+    print(max_captures(5, (2, 2), [(3, 3)], 0))  # 0
+    print(max_captures(100, (50, 50), [(49, 49), (51, 51)], 10))  # 2
 
 
 if __name__ == "__main__":

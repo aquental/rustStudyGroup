@@ -1,4 +1,5 @@
 import pytest
+import capture
 
 
 def test_empty_board():
