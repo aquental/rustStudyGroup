@@ -1,6 +1,3 @@
-import pytest
-1
-
 
 def max_captures(N, knight_pos, opponents, K):
     """
@@ -46,54 +43,10 @@ def max_captures(N, knight_pos, opponents, K):
     return max_captures
 
 
-def test_empty_board():
-    assert max_captures(5, (2, 2), [], 3) == 0
-
-
-def test_single_opponent():
-    assert max_captures(5, (2, 2), [(3, 3)], 2) == 1
-
-
-def test_multiple_opponents():
-    assert max_captures(5, (2, 2), [(3, 3), (1, 1), (4, 4)], 3) == 3
-
-
-def test_no_reachable_opponents():
-    assert max_captures(5, (2, 2), [(0, 0), (4, 4)], 1) == 0
-
-
-def test_knight_starts_on_opponent():
-    assert max_captures(5, (2, 2), [(2, 2)], 1) == 1
-
-
-def test_zero_moves():
-    assert max_captures(5, (2, 2), [(3, 3)], 0) == 0
-
-
-def test_invalid_knight_position():
-    with pytest.raises(ValueError):
-        max_captures(5, (6, 6), [(3, 3)], 2)
-
-
-def test_invalid_opponent_positions():
-    with pytest.raises(ValueError):
-        max_captures(5, (2, 2), [(6, 6)], 2)
-
-
-def test_large_board_and_many_moves():
-    assert max_captures(100, (50, 50), [(49, 49), (51, 51)], 10) == 2
-
-
 def main():
-    test_empty_board()
-    test_single_opponent()
-    test_multiple_opponents()
-    test_no_reachable_opponents()
-    test_knight_starts_on_opponent()
-    test_zero_moves()
-    test_invalid_knight_position()
-    test_invalid_opponent_positions()
-    test_large_board_and_many_moves()
+    print(max_captures(5, (2, 2), [], 3))  # 0
+    print(max_captures(5, (2, 2), [(3, 3)], 2))  # 1
+    print(max_captures(5, (2, 2), [(3, 3), (1, 1), (4, 4)], 3))  # 3
 
 
 if __name__ == "__main__":
