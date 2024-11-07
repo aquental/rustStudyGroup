@@ -23,8 +23,8 @@ def match_patterns(words, patterns):
 
 
 def main():
-    words = ["banana", "casa", "cada", "rodo"]
-    patterns = ["b.+a", "c..a", "x.*o"]
+    words = ["apple", "banana", "orange", "pineapple"]
+    patterns = ["^a.*", ".*n$", "p.*e"]
     mp = match_patterns(words, patterns)
     print(mp)
 
