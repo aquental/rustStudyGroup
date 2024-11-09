@@ -23,37 +23,48 @@ char corresponding_bracket(char c) {
 }
 
 int check(char* str){
-    char open[4] = "([{\0";
-    char close[4] = ")]}\0";
+    const char* open = "([{";
+    const char* close = ")]}";
     char stack[10] = "";
     char c;
     int len = 0;
     int s = 0;
     int i = 0;
+    char* p;
     
     len = strlen(str);
-    printf("check matching brackets for %s[%i]\n",str,len);
+    printf("check matching brackets for \'%s\'[len=%i]\n",str,len);
     while (i < len) {
         c = str[i];
-        if(strchr(open,c) != NULL) {
+        printf("c>[%c]\n",c);
+        //check open
+        p = strchr(open, c);
+        if(p != NULL) {
+            printf("open[%s]> %c - %c\n", open, *p, c);
             stack[s++] = c;
-        } else if (strchr(close,c) != NULL) {
+        }
+        //ckeck close
+        p = strchr(close, c);
+        if (p != NULL) {
+            printf("close[%s]> %c - %c\n", close, *p, c);
             if(s > 0 && corresponding_bracket(c) == stack[s-1]){
                 s--;
-                continue; //ok : matched
             } else {
                 return -1;
             }
         }
         i++;
     }
-    return 0;
+    if(s == 0) {
+        return 0;
+    }
+    return -1;
 }
 
 int main()
 {
     int result = 0;
-    char str[100] = "a(b)";
+    char str[100] = "a[b]";
     
     result = check(str);
     if(result == 0) {
