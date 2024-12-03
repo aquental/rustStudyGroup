@@ -28,4 +28,8 @@ A rusty study group.
 
 ### bootcamps
 
-[which one]()
+---
+
+### articles
+
+[In search of ideal Rust microservice template](https://softwaremill.com/in-search-of-ideal-rust-microservice-template/)
