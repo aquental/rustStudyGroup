@@ -7,6 +7,8 @@ A rusty study group.
 > [rustlings](https://github.com/rust-lang/rustlings)
 >
 > [exercism](https://exercism.org/tracks/rust)
+>
+> [Debugginh with AI](./dbg/README.md)
 
 ## Roadmaps
 
