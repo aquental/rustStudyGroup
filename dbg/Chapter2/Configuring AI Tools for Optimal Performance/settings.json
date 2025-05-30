@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "Default Light+",
+    "playwright.reuseBrowser": true,
+    "tabnine.experimentalAutoImports": true,
+    "github.copilot.chat.search.semanticTextResults": true,
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": false,
+      "javascript": true,
+      "python": true,
+      "rust": true
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.advanced": {},
+    "inlineCompletions": true,
+    "codelenses": true
+  }
