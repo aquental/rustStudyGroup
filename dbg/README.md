@@ -1,4 +1,4 @@
-# Debuggig Rust code
+# Debugging Rust code
 
 [Debugging Rust Code with AI](https://github.com/LinkedInLearning/debugging-rust-code-with-ai-6004177)
 

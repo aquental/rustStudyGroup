@@ -8,7 +8,7 @@ A rusty study group.
 >
 > [exercism](https://exercism.org/tracks/rust)
 >
-> [Debugginh with AI](./dbg/README.md)
+> [Debugging with AI](./dbg/README.md)
 
 ## Roadmaps
 
