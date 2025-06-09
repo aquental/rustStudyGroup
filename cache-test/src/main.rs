@@ -3,6 +3,7 @@ use std::time::{Duration, Instant};
 
 mod actix;
 mod tokio;
+mod veqdeque;
 
 struct Cache<K, V> {
     store: HashMap<K, V>,
@@ -80,13 +81,13 @@ fn main() {
     let mut cache: Cache<String, i32> = Cache::new(Some(Duration::from_secs(1)));
     cache.put("key1".to_string(), 42);
     println!("Value: {:?}", cache.get(&"key1".to_string())); // Some(42)
-    
+
     // Demonstrate manual removal
     cache.put("key2".to_string(), 100);
     println!("Value before removal: {:?}", cache.get(&"key2".to_string())); // Some(100)
     cache.remove(&"key2".to_string());
     println!("Value after removal: {:?}", cache.get(&"key2".to_string())); // None
-    
+
     std::thread::sleep(Duration::from_secs(2));
     println!("Value after TTL: {:?}", cache.get(&"key1".to_string())); // None
 }
