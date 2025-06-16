@@ -3,6 +3,7 @@ use proto::{AddRequest, AddResponse, SubRequest, SubResponse, DivRequest, DivRes
 use proto::{GetRequestCountRequest, GetRequestCountResponse};
 use proto::admin_server::{Admin, AdminServer};
 use tonic::transport::Server;
+use tonic_web::GrpcWebLayer;
 
 mod proto {
     tonic::include_proto!("calculator");
@@ -99,6 +100,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build_v1()?;
 
     Server::builder()
+        .accept_http1(true)
+        .layer(tower_http::cors::CorsLayer::permissive())
+        .layer(GrpcWebLayer::new())
         .add_service(service)
         .add_service(CalculatorServer::new(calc))
         .add_service(AdminServer::with_interceptor(admin, check_auth))
