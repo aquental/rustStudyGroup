@@ -15,5 +15,5 @@ grpcurl -plaintext -d '{"a" : 2, "b" : 3}' '[::1]:50051' calculator.calculator.A
 
 grpcurl -plaintext '[::1]:50051' list
 
-grpcurl -emit-defaults -plaintext '[::1]:50051' calculator.Admin.GetRequestCount
+grpcurl -H "Authorization: Bearer some-secret-token" -emit-defaults -plaintext '[::1]:50051' calculator.Admin.GetRequestCount
 ```
