@@ -3,19 +3,14 @@ use tokio::io::AsyncReadExt;
 use log::Level;
 
 async fn run() {
-    tokio::join!(
-        sleeper(), 
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
-        reader(),
+    tokio::spawn_async(
+        sleeper().await
     );
+    reader().await;
+    // tokio::join!(
+    //     sleeper(), 
+    //     reader(),
+    // );
 }
 
 fn fib(n: u32) -> u32 {
