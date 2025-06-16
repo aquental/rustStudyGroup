@@ -1,0 +1,23 @@
+[package]
+name = "tonic-demo1"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.45.1", features = ["full"] }
+tonic = "0.13.1"
+prost = "0.13"
+tonic-reflection = "0.13.1"
+
+[build-dependencies]
+tonic-build = "0.13.1"
+prost-build = "0.13"
+
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"

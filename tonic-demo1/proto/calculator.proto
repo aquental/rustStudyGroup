@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package calculator;
+
+service Calculator {
+    rpc add(AddRequest) returns (AddResponse);
+    rpc sub(SubRequest) returns (SubResponse);
+    rpc div(DivRequest) returns (DivResponse);
+}
+
+message AddRequest {
+    int64 a = 1;
+    int64 b = 2;
+}
+message AddResponse {
+    int64 result = 1;
+}
+
+message SubRequest {
+    int64 a = 1;
+    int64 b = 2;
+}
+message SubResponse {
+    int64 result = 1;
+}
+
+message DivRequest {
+    int64 a = 1;
+    int64 b = 2;
+}
+message DivResponse {
+    int64 result = 1;
+}
+
+service Admin {
+    rpc GetRequestCount(GetRequestCountRequest) returns (GetRequestCountResponse);
+}
+
+message GetRequestCountRequest {}
+message GetRequestCountResponse {
+    int64 count = 1;
+}
