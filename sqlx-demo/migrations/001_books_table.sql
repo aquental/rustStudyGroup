@@ -1,7 +1,5 @@
 create table book (
+    isbn varchar not null primary key,
     title varchar not null,
-    author varchar not null,
-    isbn varchar not null
+    author varchar not null
 );
-
-create unique index book_isbn_idx on book(isbn);
