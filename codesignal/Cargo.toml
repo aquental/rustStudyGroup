@@ -10,4 +10,17 @@ path = "src/NotificationService.rs"
 [[bin]]
 name = "fs"
 path = "src/FruitStore.rs"
+
+[[bin]]
+name = "nml"
+path = "src/Animals.rs"
+
+[[bin]]
+name = "fa"
+path = "src/FeedAnimals.rs"
+
+[[bin]]
+name = "fae"
+path = "src/FeedAnimalsEnum.rs"
+
 [dependencies]
