@@ -43,4 +43,16 @@ path = "src/dependencies.rs"
 name = "job"
 path = "src/job.rs"
 
+[[bin]]
+name = "err1"
+path = "src/Errors.rs"
+
+[[bin]]
+name = "err2"
+path = "src/Error-prop.rs"
+
+[[bin]]
+name = "dry1"
+path = "src/dry-extractfunc.rs"
+
 [dependencies]
