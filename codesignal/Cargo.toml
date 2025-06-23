@@ -23,4 +23,24 @@ path = "src/FeedAnimals.rs"
 name = "fae"
 path = "src/FeedAnimalsEnum.rs"
 
+[[bin]]
+name = "kiss1"
+path = "src/kiss1.rs"
+
+[[bin]]
+name = "readability"
+path = "src/readability.rs"
+
+[[bin]]
+name = "palindrome"
+path = "src/palindrome.rs"
+
+[[bin]]
+name = "dependencies"
+path = "src/dependencies.rs"
+
+[[bin]]
+name = "job"
+path = "src/job.rs"
+
 [dependencies]
