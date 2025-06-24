@@ -59,4 +59,20 @@ path = "src/dry-extractfunc.rs"
 name = "single_resp"
 path = "src/single_resp.rs"
 
+[[bin]]
+name = "course"
+path = "src/Course.rs"
+
+[[bin]]
+name = "oc"
+path = "src/OpenClosed.rs"
+
+[[bin]]
+name = "is"
+path = "src/if_segregation.rs"
+
+[[bin]]
+name = "di"
+path = "src/dep_inv.rs"
+
 [dependencies]
