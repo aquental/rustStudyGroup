@@ -55,4 +55,8 @@ path = "src/Error-prop.rs"
 name = "dry1"
 path = "src/dry-extractfunc.rs"
 
+[[bin]]
+name = "single_resp"
+path = "src/single_resp.rs"
+
 [dependencies]
