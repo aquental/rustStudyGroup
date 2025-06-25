@@ -7,4 +7,20 @@ edition = "2024"
 name = "structs"
 path = "src/structs.rs"
 
+[[bin]]
+name = "car"
+path = "src/car.rs"
+
+[[bin]]
+name = "point"
+path = "src/point.rs"
+
+[[bin]]
+name = "rectangle"
+path = "src/rectangle.rs"
+
+[[bin]]
+name = "book"
+path = "src/book.rs"
+
 [dependencies]
