@@ -23,4 +23,24 @@ path = "src/rectangle.rs"
 name = "book"
 path = "src/book.rs"
 
+[[bin]]
+name = "ge"
+path = "src/gameevent.rs"
+
+[[bin]]
+name = "msg"
+path = "src/messge.rs"
+
+[[bin]]
+name = "grect"
+path = "src/gen_rectangle.rs"
+
+[[bin]]
+name = "gint"
+path = "src/gen_integerpoint.rs"
+
+[[bin]]
+name = "gcoord"
+path = "src/gen_coordinate.rs"
+
 [dependencies]
