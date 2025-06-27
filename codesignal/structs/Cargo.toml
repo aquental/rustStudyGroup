@@ -43,4 +43,12 @@ path = "src/gen_integerpoint.rs"
 name = "gcoord"
 path = "src/gen_coordinate.rs"
 
+[[bin]]
+name = "std_disp"
+path = "src/displayable_std.rs"
+
+[[bin]]
+name = "animal"
+path = "src/animal.rs"
+
 [dependencies]
