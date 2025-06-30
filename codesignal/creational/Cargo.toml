@@ -19,4 +19,16 @@ path = "src/logger.rs"
 name = "docfactory"
 path = "src/factory.rs"
 
+[[bin]]
+name = "instr"
+path = "src/instr.rs"
+
+[[bin]]
+name = "vehicle_main"
+path = "src/vehicle_main.rs"
+
+[[bin]]
+name = "notification_main"
+path = "src/notification_main.rs"
+
 [dependencies]
