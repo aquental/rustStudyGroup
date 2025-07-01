@@ -1,0 +1,14 @@
+[package]
+name = "builder"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "house"
+path = "src/house_main.rs"
+
+[[bin]]
+name = "h2"
+path = "src/house2_main.rs"
+
+[dependencies]
