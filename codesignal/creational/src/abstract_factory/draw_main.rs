@@ -11,6 +11,6 @@ fn main() {
         _ => panic!("Unknown drawing type."),
     };
 
-    let app = drawing_application::DrawingApplication::new(factory);
+    let mut app = drawing_application::DrawingApplication::new(factory);
     app.render();
 }

@@ -31,4 +31,8 @@ path = "src/vehicle_main.rs"
 name = "notification_main"
 path = "src/notification_main.rs"
 
+[[bin]]
+name = "draw"
+path = "src/draw_main.rs"
+
 [dependencies]
