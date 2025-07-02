@@ -24,32 +24,27 @@ impl VintageCar {
 // - start_engine()
 // - accelerate()
 // - brake()
-pub struct ModernCarInterface;
-
-impl ModernCarInterface {
-    pub fn start_engine(&self) {}
-    pub fn accelerate(&self) {}
-    pub fn brake(&self) {}
+pub trait ModernCarInterface {
+    fn start_engine(&self);
+    fn accelerate(&self);
+    fn brake(&self);
 }
 
 // TODO: Define the CarAdapter struct that implements ModernCarInterface
 // It should have a constructor that takes a VintageCar instance and initializes it.
 // Implement the methods start_engine, accelerate, and brake to call the appropriate methods of VintageCar.
 pub struct CarAdapter {
-    vintage_car: VintageCar,
+    pub vintage_car: VintageCar,
 }
 
-impl CarAdapter {
-    pub fn new(vintage_car: VintageCar) -> CarAdapter {
-        CarAdapter { vintage_car }
-    }
-    pub fn start_engine(&self) {
+impl ModernCarInterface for CarAdapter {
+    fn start_engine(&self) {
         self.vintage_car.ignite();
     }
-    pub fn accelerate(&self) {
+    fn accelerate(&self) {
         self.vintage_car.drive();
     }
-    pub fn brake(&self) {
+    fn brake(&self) {
         self.vintage_car.halt();
     }
 }
