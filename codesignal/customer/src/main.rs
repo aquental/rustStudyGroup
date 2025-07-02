@@ -10,7 +10,7 @@ fn main() {
     
     // Build Premium Customer
     let mut premium_builder = PremiumCustomerBuilder::new();
-    let premium_customer = premium_builder
+    premium_builder
         .build_name("Alice Smith".to_string())
         .build_email("alice@example.com".to_string())
         .build_extra_details("Gold");
@@ -19,7 +19,7 @@ fn main() {
 
     // Build Regular Customer
     let mut regular_builder = RegularCustomerBuilder::new();
-    let regular_customer = regular_builder
+    regular_builder
         .build_name("Bob Jones".to_string())
         .build_email("bob@example.com".to_string())
         .build_extra_details("true");
