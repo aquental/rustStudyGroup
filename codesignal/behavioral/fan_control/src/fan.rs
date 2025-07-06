@@ -6,6 +6,9 @@ pub struct Fan {
     speed: u32,
 }
 impl Fan {
+    pub fn new() -> Self {
+        Fan { speed: 0 }
+    }
     pub fn low(&mut self) {
         self.speed = 1;
         println!("Fan speed: low ({})", self.speed);

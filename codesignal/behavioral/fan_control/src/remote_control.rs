@@ -11,6 +11,11 @@ pub struct RemoteControl {
 }
 
 impl RemoteControl {
+    pub fn new() -> Self {
+        Self {
+            history: Vec::new(),
+        }
+    }
     pub fn press_button(&mut self, command: Box<dyn Command>, fan: &mut Fan) {
         command.execute(fan);
         self.history.push(command);

@@ -19,4 +19,11 @@ fn main() {
     // - Create a `RemoteControl` object.
     // - Use `RemoteControl` to execute commands to change the fan speed and turn it off.
     // - Implement undo functionality to revert the fan to its previous states.
+    let mut fan = Fan::new();
+    let mut remote_control = RemoteControl::new();
+    remote_control.press_button(Box::new(FanLowCommand::new()), &mut fan);
+    remote_control.press_button(Box::new(FanMediumCommand::new()), &mut fan);
+    remote_control.press_button(Box::new(FanHighCommand::new()), &mut fan);
+    remote_control.press_button(Box::new(FanOffCommand::new()), &mut fan);
+    remote_control.undo_button(&mut fan);
 }
