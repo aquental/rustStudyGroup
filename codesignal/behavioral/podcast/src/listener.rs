@@ -15,3 +15,8 @@ impl ConcreteListener {
 }
 
 // TODO: Implement the Listener trait for ConcreteListener by overriding the update method to print "[name] is listening to: [episode]"
+impl Listener for ConcreteListener {
+    fn update(&self, episode: &str) {
+        println!("{} is listening to: {}", self.name, episode);
+    }
+}
