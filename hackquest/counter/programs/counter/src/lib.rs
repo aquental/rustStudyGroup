@@ -14,8 +14,10 @@ pub mod counter {
     }
 
     pub fn increment(ctx: Context<Increment>) -> Result<()> {
+        
         let counter = &mut ctx.accounts.counter;
-        counter.count += 1;
+        msg!("Previous counter. Count: {}", counter.count);
+        counter.count += counter.count.checked_add(1).unwrap();
         msg!("Counter incremented. Current count: {}", counter.count);
         Ok(())
     }

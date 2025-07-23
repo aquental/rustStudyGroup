@@ -1,14 +1,18 @@
 [features]
 seeds = false
 skip-lint = false
+
+[toolchain]
+anchor_version = "0.30.1"
+
 [programs.localnet]
-counter = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+counter = "nLjxYLhw8eSjrG4ui8rZvCZR44tmpb9PRBqtQ36MmhR"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/aquental/.config/solana/calyptus-wallet.json"
 
 [scripts]
