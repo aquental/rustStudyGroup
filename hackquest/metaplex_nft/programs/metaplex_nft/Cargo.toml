@@ -1,0 +1,24 @@
+[package]
+name = "metaplex_nft"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "metaplex_nft"
+
+[features]
+idl-build = ["anchor-spl/idl-build"]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+
+
+[dependencies]
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
+anchor-spl = { version = "0.31.1", features = ["metadata"] }
+mpl-token-metadata = "5.1.0"
+
