@@ -9,6 +9,8 @@ A rusty study group.
 > [exercism](https://exercism.org/tracks/rust)
 >
 > [Debugging with AI](./dbg/README.md)
+>
+> [Rust Language Cheat Sheet](https://cheats.rs/)
 
 ## Roadmaps
 
