@@ -13,6 +13,8 @@ A rusty study group.
 > [Rust Language Cheat Sheet](https://cheats.rs/)
 >
 > [Rust by example](https://doc.rust-lang.org/rust-by-example/generics/new_types.html)
+>
+> [Real World Apps](./RustRealApps/README.md)
 
 ## Roadmaps
 

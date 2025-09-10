@@ -1,6 +1,6 @@
 use aes_gcm::{
-    aead::{Aead, KeyInit},
     Aes256Gcm, Nonce,
+    aead::{Aead, KeyInit},
 };
 use argon2::{Algorithm, Argon2, Params, PasswordHasher, Version};
 use password_hash::SaltString;
@@ -78,7 +78,6 @@ fn derive_key(password: &str, salt: &[u8]) -> Result<[u8; 32], EncryptionError> 
     Ok(key)
 }
 
-
 /// Encrypt a secret string using the given key and nonce.
 ///
 /// # Errors
@@ -87,7 +86,7 @@ fn derive_key(password: &str, salt: &[u8]) -> Result<[u8; 32], EncryptionError> 
 ///
 /// # Examples
 ///
-/// 
+///
 fn encrypt_secret(
     secret: &str,
     key: &[u8; 32],
@@ -99,7 +98,6 @@ fn encrypt_secret(
         .encrypt(nonce, secret.as_bytes())
         .map_err(EncryptionError::AesGcmError)
 }
-
 
 /// Decrypts a ciphertext using the provided key and nonce.
 ///
@@ -129,7 +127,6 @@ fn decrypt_secret(
         .map_err(EncryptionError::AesGcmError)?;
     String::from_utf8(plaintext).map_err(EncryptionError::Utf8Error)
 }
-
 
 /// A test function that demonstrates the encryption and decryption of a secret message using a derived key from a password.
 ///
@@ -184,7 +181,6 @@ pub fn mock_encrypt_decrypt_test() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-
 /// Checks if a file exists at the given path and has user read-only permissions (u+r).
 ///
 /// # Arguments
@@ -234,7 +230,7 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::fs::{set_permissions, File};
+    use std::fs::{File, Permissions, set_permissions};
     use std::os::unix::fs::PermissionsExt;
 
     #[test]
@@ -254,7 +250,7 @@ mod tests {
 
         // Test the function
         assert_eq!(
-            check_file_user_read_only(file_path)?,
+            check_password_file(file_path)?,
             true,
             "File should have u+r permissions"
         );

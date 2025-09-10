@@ -1,0 +1,13 @@
+[package]
+name = "memory"
+version = "0.1.0"
+edition = "2024"
+authors = ["aquental <antonio.quental@gmail.com>"]
+
+[[bin]]
+name = "mars_calc"
+path = "src/mars_calc.rs"
+
+[dependencies]
+
+
