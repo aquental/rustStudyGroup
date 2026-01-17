@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "src/advanced_pattern_matching/clip_1_complex_types",
+    "src/advanced_pattern_matching/clip_2_slice_iterators",
+    "src/advanced_pattern_matching/clip_3_guards_bindings",
+    "src/refactoring_strategies/clip_1_replace_iflet",
+    "src/refactoring_strategies/clip_2_loop_control",
+    "src/refactoring_strategies/clip_3_modular",
+    "src/managing_debugging_lifetimes/clip_2_nested_borrows",
+    "src/managing_debugging_lifetimes/clip_3_lifetime_errors",
+    "src/managing_debugging_lifetimes/clip_4_borrow_conflicts",
+]
