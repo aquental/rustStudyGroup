@@ -37,6 +37,7 @@ async fn main() -> std::io::Result<()> {
         println!("listening on http://{}", &addr);
 
         App::new()
+            .app_data(web::Data::new(db_pool.clone()))
             // serve JS/WASM/CSS from `pkg`
             .service(Files::new("/pkg", format!("{site_root}/pkg")))
             // serve other assets from the `assets` directory

@@ -3,57 +3,80 @@ use chrono::Local;
 use crate::model::blog_post::Post;
 use leptos_server::ServerFnError;
 
+#[cfg(feature = "server")]
+use actix_web::web::Data;
+#[cfg(feature = "server")]
+use sqlx::{Pool, Sqlite};
+#[cfg(feature = "server")]
+use leptos_actix::extract;
+use crate::model::blog_post::Post;
+
 #[server(UpsertPost, "/api")]
 pub async fn upsert_post(
-id: Option<String>,
-dt: String,
-image_url: String,
-title: String,
-text: String,
-) -> Result<String, ServerFnError> {
-    // Define fields here
-    Ok(String::from("Post upserted successfully"))
+    id: Option<String>,
+    dt: String,
+    image_url: String,
+    title: String,
+    text: String ) -> Result<String, ServerFnError>
+{
+    let pool: Arc<Pool<Sqlite>> = extract(|conn:Data<Pool<Sqlite>>>| async move { conn.into_inner()}).await?;
+    use uuid::Uuid;
+    let id = id.unwrap_or(uuid::Uuid::new_v4().to_string());
+    sqlx::query("INSERT INTO post (id, dt, image_url, title, text)
+        VALUES ($1, $2, $3, $4, $5)
+        ON CONFLICT(id) DO UPDATE SET
+            dt = excluded.dt,
+            image_url = excluded.image_url,
+            title = excluded.title,
+            text = excluded.text
+        "),
+        .bind(&id)
+        .bind(&dt)
+        .bind(&image_url)
+        .bind(&title)
+        .bind(&text)
+        .execute(&*pool)
+        .await?;
+
+    Ok(id)
 }
 
 
 #[server(GetPost, "/api")]
 pub async fn get_post(id: String) -> Result<Post, ServerFnError> {
-    Ok(Post {
-        id: "1".to_string(),
-        dt: Local::now().naive_local(),
-        image_url: String::from("https://bit.ly/3t0bA61"),
-        title: String::from("Ocean"),
-        text: String::from("This is a sample blog post."),
-    })  
+    let pool: Arc<Pool<Sqlite>> = extract(|conn:Data<Pool<Sqlite>>>| async move { conn.into_inner()}).await?;
+
+    let res: Post = sqlx::query_as::<_, Post>("SELECT id, dt, image_url, title, text FROM post WHERE id = $1")
+        .bind(&id)
+        .fetch_one(&*pool)
+        .await?
+        .map_err(|e| ServerFnError::ServerError("error getting post".to_owned()))?;
+    Ok(res)
 }
 
 #[server(GetPreviews, "/api")]
 pub async fn get_previews(
-oldest: Option<String>,
-newest: Option<String>,
-preview_length: u8,
-page_size: u8) -> Result<Vec<Post>, ServerFnError> {
-    Ok(vec![
-        Post {
-            id: "1".to_string(),
-            dt: Local::now().naive_local(),
-            image_url: String::from("https://bit.ly/3t0bA61"),
-            title: String::from("Ocean"),
-            text: String::from("This is a sample blog post."),
-        },
-        Post {
-            id: "2".to_string(),
-            dt: Local::now().naive_local(),
-            image_url: String::from("https://bit.ly/3t0bA61"),
-            title: String::from("Forest"),
-            text: String::from("This is another sample blog post about forests."),
-        },
-        Post {
-            id: "3".to_string(),
-            dt: Local::now().naive_local(),
-            image_url: String::from("https://bit.ly/3t0bA61"),
-            title: String::from("Desert"),
-            text: String::from("This is another sample blog post about deserts."),
-        }
-    ])
+    oldest: Option<String>,
+    newest: Option<String>,
+    preview_length: u8,
+    page_size: u8) -> Result<Vec<Post>, ServerFnError>
+{
+    let pool: Arc<Pool<Sqlite>> = extract(|conn:Data<Pool<Sqlite>>>| async move { conn.into_inner()}).await?;
+
+    let res: Vec<Post> = sqlx::query_as::<_, Post>(
+        "SELECT id, dt, image_url, title, 
+            CASE
+                WHEN LENGTH(text) > $1 THEN SUBSTR(text, $1, ?) || '...'
+                ELSE text
+            END AS text 
+            FROM post
+        ORDER BY dt DESC
+        LIMIT $2")
+        .bind(preview_length as i64)
+        .bind(page_size as i64)
+        .fetch_all(&*pool)
+        .await?
+        .map_err(|e| ServerFnError::ServerError("error getting previews".to_owned()))?;
+
+    Ok(res)
 }

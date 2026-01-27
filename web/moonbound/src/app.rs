@@ -12,22 +12,22 @@ use leptos_router::{
 
 #[component]
 pub fn Navbar() -> impl IntoView {
-    view![
+    view! {
     <h2>"Blog"</h2>
         <nav>
             <a href="/">"Home"</a>
             <a href="/edit">"Edit Blog"</a>
         </nav>
-    ]
+    }
 }
 
 #[component]
 pub fn Statusbar() -> impl IntoView {
-    view![
+    view! {
         <footer>
             <p>"© 2026 Moonbound. All rights reserved."</p>
         </footer>
-    ]
+    }
 }
 
 #[component]
