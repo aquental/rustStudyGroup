@@ -13,10 +13,10 @@ use tokio::sync::Mutex;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let service = HelloWorld::new().serve(stdio()).await.inspect_err(|e| {
-        println!("Error starting HelloWorld service: {}", e);
+    let service = HelloWorld::new().serve(stdio()).await.map_err(|e| {
+        eprintln!("Error starting HelloWorld service: {}", e);
+        e
     })?;
-
     service.waiting().await?;
     Ok(())
 }
