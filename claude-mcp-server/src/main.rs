@@ -1,6 +1,4 @@
-use std::sync::Arc;
-use tokio::sync::Mutex;
-
+use rmcp::ServiceExt;
 use rmcp::{
     ErrorData, ServerHandler,
     handler::server::tool::ToolRouter,
@@ -10,12 +8,15 @@ use rmcp::{
     tool, tool_handler, tool_router,
     transport::stdio,
 };
+use std::sync::Arc;
+use tokio::sync::Mutex;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let service = HelloWorld::new().serve(stdio()).await.inspect_err(|e| {
         println!("Error starting HelloWorld service: {}", e);
     })?;
+
     service.waiting().await?;
     Ok(())
 }
@@ -35,25 +36,25 @@ impl HelloWorld {
         }
     }
 
-    #[tool(description = "Increments by 1 and returns the current count")]
+    #[tool(description = "Increments counter by 1")]
     async fn increment(&self) -> Result<CallToolResult, ErrorData> {
-        let mut count = self.counter.lock().await;
-        *count += 1;
+        let mut counter = self.counter.lock().await;
+        *counter += 1;
         Ok(CallToolResult::success(vec![Content::text(
-            count.to_string(),
+            counter.to_string(),
         )]))
     }
 
-    #[tool(description = "Decrements by 1 and returns the current count")]
+    #[tool(description = "Decrements counter by 1")]
     async fn decrement(&self) -> Result<CallToolResult, ErrorData> {
-        let mut count = self.counter.lock().await;
-        *count -= 1;
+        let mut counter = self.counter.lock().await;
+        *counter -= 1;
         Ok(CallToolResult::success(vec![Content::text(
-            count.to_string(),
+            counter.to_string(),
         )]))
     }
 
-    #[tool(description = "Returns the current count")]
+    #[tool(description = "Returns the current count value")]
     async fn get_value(&self) -> Result<CallToolResult, ErrorData> {
         let count = self.counter.lock().await;
         Ok(CallToolResult::success(vec![Content::text(

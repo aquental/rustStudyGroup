@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "helloworld": {
-      "command": "/Users/aquental/projects/rust/rustStudyGroup/claude-mcp-server/target/debug/claude-mcp-server",
+      "command": "/Users/aquental/projects/rust/rustStudyGroup/claude-mcp-server/target/release/claude-mcp-server",
       "args": []
     }
   }
